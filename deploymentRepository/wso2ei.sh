@@ -38,6 +38,8 @@ function usage(){
   echo -e "-u, --undeploy   Undeploy WSO2 Enterprise Integrator"
   echo -e "-h, --help       Display usage instrusctions"
 }
+usage
+
 function undeploy(){
   echoBold "Undeploying WSO2 Enterprise Integrator ... \n"
   kubectl delete -f deployment.yaml
@@ -73,6 +75,7 @@ function sp(){
 }
 function product_name() {
   echo -e "\n"
+  echo "~~~~~~~~~~~~~ product_name ~~~~~~~~~~~~~~~~~~~"
   #wso2ei
   st 1; sp 8; st 1; sp 2; sp 1; st 3; sp 3; sp 2; st 3; sp 4; sp 1; st 3; sp 3; sp 8; st 5; sp 2; st 5
   echo ""
@@ -3102,6 +3105,7 @@ function progress_bar(){
   echo -e "\n"
 
 }
+progress_bar
 
 function deploy(){
     # checking for required tools
@@ -3184,25 +3188,3 @@ function deploy(){
 }
 
 deploy
-
-# arg=$1
-# if [[ -z $arg ]]; then
-#     echoBold "Expected parameter is missing\n"
-#     usage
-# else
-#     case $arg in
-#       -d|--deploy)
-#         deploy
-#         ;;
-#       -u|--undeploy)
-#         undeploy
-#         ;;
-#       -h|--help)
-#         usage
-#         ;;
-#       *)
-#         echoBold "Invalid parameter : $arg\n"
-#         usage
-#         ;;
-#     esac
-# fi
