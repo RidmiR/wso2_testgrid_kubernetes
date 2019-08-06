@@ -93,6 +93,7 @@ function product_name() {
   echo -e "\n\n"
 
 }
+product_name
 
 function create_yaml(){
 
@@ -3108,6 +3109,7 @@ function progress_bar(){
 progress_bar
 
 function deploy(){
+ echo "~~~~~~~~~~~~~ Running deploy ~~~~~~~~~~~~~~~~~~~"
     # checking for required tools
     if [[ ! $(which kubectl) ]]
     then
