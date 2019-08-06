@@ -97,6 +97,8 @@ product_name
 
 function create_yaml(){
 
+echo "~~~~~~~~~~~~~ Running create_yaml ~~~~~~~~~~~~~~~~~~~"
+
 cat > ${k8s_obj_file} << "EOF"
 EOF
 if [ "$namespace" == "wso2" ]; then
@@ -2944,6 +2946,8 @@ spec:
 EOF
 }
 
+create_yaml
+
 function get_creds(){
   while [[ -z "$WUMUsername" ]]
   do
@@ -3193,4 +3197,4 @@ function deploy(){
     fi
 }
 
-deploy
+
