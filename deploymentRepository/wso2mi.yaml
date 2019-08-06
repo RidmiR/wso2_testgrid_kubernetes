@@ -37,8 +37,7 @@ metadata:
     event: mi
 spec:
   selector:
-    matchLabels:
-      event: mi
+    event: mi
   ports:
     -
       name: web
