@@ -3128,6 +3128,7 @@ function deploy(){
     echoBold "Done.\n"
 
     #displaying wso2 product name
+    echo "~~~~~~~~~~~~~ Running product_name ~~~~~~~~~~~~~~~~~~~"
     product_name
 
     # check if testgrid
@@ -3147,6 +3148,7 @@ function deploy(){
     fi
 
     # checking if inputs are empty
+    echo "~~~~~~~~~~~~~ Running get_node_ip ~~~~~~~~~~~~~~~~~~~"
     get_node_ip
 
     # create and encode username/password pair
@@ -3164,9 +3166,11 @@ function deploy(){
     done
 
     # If TG random nodePort else default nodePort
+    echo "~~~~~~~~~~~~~ Running get_nodePorts ~~~~~~~~~~~~~~~~~~~"
     get_nodePorts
 
     # create kubernetes object yaml
+    echo "~~~~~~~~~~~~~ Running create_yaml ~~~~~~~~~~~~~~~~~~~"
     create_yaml
 
     if ! test -f $TG_PROP; then
