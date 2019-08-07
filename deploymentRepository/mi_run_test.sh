@@ -29,8 +29,13 @@ pwd
 
 echo "Build Image ~~~~~~~~~"
 
-touch DockerFile
+exec 3<> DockerFile
 ls
+echo "FROM wso2/micro-integrato:1.1.0-SNAPSHOT" >&3
+echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
+
+cat DockerFile
+
 #docker build -t microintegrator .
 
 #echo "Run Image ~~~~~~~~~"
