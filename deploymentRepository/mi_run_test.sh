@@ -36,8 +36,8 @@ echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server
 
 cat DockerFile
 
-#docker build -t microintegrator .
+docker build -t DockerFile .
 
-#echo "Run Image ~~~~~~~~~"
-#docker run -d -p 8290:8290 microintegrator
+echo "Run Image ~~~~~~~~~"
+docker run -d -p 8290:8290 DockerFile
 
