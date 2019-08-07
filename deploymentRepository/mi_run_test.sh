@@ -36,8 +36,8 @@ echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server
 
 cat DockerFile
 
-docker build -f DockerFile .
+docker build -t mi_docker:latest -f DockerFile .
 
-echo "Run Image ~~~~~~~~~"
-docker run -d -p 8290:8290 DockerFile
+#echo "Run Image ~~~~~~~~~"
+#docker run -d -p 8290:8290 mi_docker:latest
 
