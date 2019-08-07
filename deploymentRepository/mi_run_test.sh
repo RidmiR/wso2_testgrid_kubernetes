@@ -28,8 +28,11 @@ echo "HOME ====>    $home"
 pwd
 
 echo "Build Image ~~~~~~~~~"
-docker build -t microintegrator .
 
-echo "Run Image ~~~~~~~~~"
-docker run -d -p 8290:8290 microintegrator
+touch DockerFile
+ls
+#docker build -t microintegrator .
+
+#echo "Run Image ~~~~~~~~~"
+#docker run -d -p 8290:8290 microintegrator
 
