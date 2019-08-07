@@ -20,5 +20,12 @@ echo "~~~~~~~~~~~~~ Starting mi_run_test.sh ~~~~~~~~~~~~~~~~~~~"
 
 input_dir=$2
 output_dir=$4
+home='pwd'
 
 echo "My INPUTS_DIR is $input_dir"
+
+echo "HOME ====>    $home"
+pwd
+
+
+
