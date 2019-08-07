@@ -31,11 +31,13 @@ echo "Build Image ~~~~~~~~~"
 
 exec 3<> DockerFile
 ls
+
 echo "FROM wso2/micro-integrato:1.1.0-SNAPSHOT" >&3
 echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
 
 cat DockerFile
 
+docker login --username=ridmir --email=rangikaridmi@gmail.com
 docker build -t mi_docker:latest -f DockerFile .
 
 #echo "Run Image ~~~~~~~~~"
