@@ -27,5 +27,9 @@ echo "My INPUTS_DIR is $input_dir"
 echo "HOME ====>    $home"
 pwd
 
+echo "Build Image ~~~~~~~~~"
+docker build -t microintegrator .
 
+echo "Run Image ~~~~~~~~~"
+docker run -d -p 8290:8290 microintegrator
 
