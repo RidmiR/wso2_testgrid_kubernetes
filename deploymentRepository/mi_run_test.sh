@@ -62,7 +62,6 @@ git clone https://github.com/RidmiR/micro-integrator.git
 
 echo "Build Image ~~~~~~~~~"
 pwd
-cd $dir/micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps
 exec 3<> DockerFile
 ls
 
