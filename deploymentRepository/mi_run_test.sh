@@ -71,7 +71,7 @@ echo "Build Docker Image ~~~~~~~~~"
 pwd
 ls
 docker build -t "mi_docker:latest" .
-docker build -t mi_docker:latest -f DockerFile .
+docker build -t mi_docker:latest -f Dockerfile .
 
 #echo "Run Image ~~~~~~~~~"
 #docker run -d -p 8290:8290 mi_docker:latest
