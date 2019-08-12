@@ -62,7 +62,7 @@ ls
 echo "Build Image ~~~~~~~~~"
 
 exec 3<> DockerFile
-pwd
+cd $dir
 ls
 
 echo "RUN sudo docker login -u ridmir -p 1qaz2wsx@E" >&3
