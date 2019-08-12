@@ -81,7 +81,7 @@ cat DockerFile
 #cat DockerFile
 
 echo "Build Docker Image ~~~~~~~~~"
-docker build -t mi_docker:latest $dir/DockerFile
+docker build -t mi_docker:latest .
 
 echo "Cat carbonapps Path  ~~~~~~~~~"
 cd $dir
