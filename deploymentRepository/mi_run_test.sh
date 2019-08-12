@@ -73,10 +73,9 @@ echo "ADD $dir/server/carbonapps" >&3
 echo "COPY carbonapps $dir/server/carbonapps" >&3
 
 cd $dir
-echo "DIR-->"
-echo $dir
+pwd
 echo "Build Docker Image ~~~~~~~~~"
-docker build -t mi_docker:latest -f DockerFile .
+docker build -t mi_docker:latest .
 
 echo "Cat carbonapps Path  ~~~~~~~~~"
 cd $dir
