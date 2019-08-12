@@ -60,7 +60,7 @@ echo "filepath --->>>   $filPath"
 #ls
 
 echo "Build Image ~~~~~~~~~"
-
+pwd
 cd $dir
 exec 3<> DockerFile
 ls
@@ -79,7 +79,9 @@ cat DockerFile
 
 #echo "Cat DockerFile  ~~~~~~~~~"
 #cat DockerFile
-
+cd $dir
+echo "DIR-->"
+echo $dir
 echo "Build Docker Image ~~~~~~~~~"
 docker build -t mi_docker:latest .
 
