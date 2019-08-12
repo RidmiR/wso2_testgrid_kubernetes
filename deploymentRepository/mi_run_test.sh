@@ -75,7 +75,7 @@ cat DockerFile
 
 
 echo "cd to server path  ~~~~~~~~~"
-cd $dir/server/carbonapps
+#cd $dir/server/carbonapps
 ls
 
 docker build -t mi_docker:latest -f DockerFile .
