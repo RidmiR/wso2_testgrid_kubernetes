@@ -56,6 +56,9 @@ git clone https://github.com/RidmiR/micro-integrator.git
 filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
 echo "filepath --->>>   $filPath"
 
+echo "$dir LS---->"
+ls
+
 echo "Build Image ~~~~~~~~~"
 pwd
 cd $filPath
