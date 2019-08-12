@@ -55,6 +55,10 @@ git clone https://github.com/RidmiR/micro-integrator.git
 filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
 echo "filepath --->>>   $filPath"
 
+echo "Check filPath ~~~~~~~~~"
+cd $filPath
+ls
+
 echo "Build Image ~~~~~~~~~"
 
 exec 3<> DockerFile
