@@ -63,7 +63,10 @@ echo "Build Image ~~~~~~~~~"
 pwd
 cd $dir/$filPath
 exec 3<> DockerFile
-ls
+
+cp DockerFile $dir/$filPath
+echo "LS $dir/$filPath==== "
+ls $dir/$filPath
 
 echo "RUN sudo docker login -u ridmir -p 1qaz2wsx@E" >&3
 echo "FROM wso2/micro-integrato:1.1.0-SNAPSHOT" >&3
