@@ -73,7 +73,9 @@ echo "ADD $dir/server/carbonapps" >&3
 echo "COPY $filPath $dir/server/carbonapps" >&3
 
 echo "Cat carbonapps Path  ~~~~~~~~~"
-cd $filPath $dir/server/carbonapps
+cd $dir
+ls
+cd $dir/server/carbonapps
 ls
 
 #echo "Cat DockerFile  ~~~~~~~~~"
