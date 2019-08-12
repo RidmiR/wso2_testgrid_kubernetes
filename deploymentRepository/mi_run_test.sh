@@ -54,11 +54,7 @@ echo "Repo Clone ~~~~~~~~~"
 cd $dir
 git clone https://github.com/RidmiR/micro-integrator.git
 filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
-#echo "filepath --->>>   $filPath"
-
-#echo "Check filPath ~~~~~~~~~"
-#cd $filPath
-#ls
+echo "filepath --->>>   $filPath"
 
 echo "Build Image ~~~~~~~~~"
 pwd
@@ -72,10 +68,8 @@ echo "RUN mkdir -p $dir/server/carbonapps" >&3
 echo "ADD $dir/server/carbonapps" >&3
 echo "COPY carbonapps $dir/server/carbonapps" >&3
 
-echo "PWDDD ~~~~~~~~~"
-cd $filPath
 echo "Build Docker Image ~~~~~~~~~"
-docker build -t mi_docker:latest $filPath
+cd $filPath && docker build -t mi_docker:latest .
 
 #echo "Run Image ~~~~~~~~~"
 #docker run -d -p 8290:8290 mi_docker:latest
