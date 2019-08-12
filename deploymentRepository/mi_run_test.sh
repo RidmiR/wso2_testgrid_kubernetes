@@ -61,7 +61,7 @@ ls
 
 echo "Build Image ~~~~~~~~~"
 pwd
-cd $filPath
+cd $dir/$filPath
 exec 3<> DockerFile
 ls
 
@@ -72,7 +72,7 @@ echo "ADD $dir/server/carbonapps" >&3
 echo "COPY carbonapps $dir/server/carbonapps" >&3
 
 echo "Build Docker Image ~~~~~~~~~"
-cd $filPath && docker build -t mi_docker:latest .
+cd $dir/$filPath && docker build -t mi_docker:latest .
 
 #echo "Run Image ~~~~~~~~~"
 #docker run -d -p 8290:8290 mi_docker:latest
