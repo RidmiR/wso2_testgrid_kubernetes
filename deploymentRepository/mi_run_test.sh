@@ -65,8 +65,13 @@ echo "FROM wso2/micro-integrato:1.1.0-SNAPSHOT" >&3
 #echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
 echo "COPY $filPath $dir/server/carbonapps" >&3
 
+echo "Cat DockerFile  ~~~~~~~~~"
 cat DockerFile
 
+
+echo "cd to server path  ~~~~~~~~~"
+cd $dir/server/carbonapps
+ls
 
 docker build -t mi_docker:latest -f DockerFile .
 
