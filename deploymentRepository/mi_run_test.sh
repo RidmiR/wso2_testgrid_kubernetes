@@ -56,7 +56,7 @@ ls
 echo "Build Image ~~~~~~~~~"
 
 cd $dir/$filPath
-exec 3<> DockerFile
+exec 3<> Dockerfile
 
 echo "ls carbonapps path=====> "
 ls $dir/$filPath
