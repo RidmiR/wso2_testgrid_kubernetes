@@ -18,16 +18,10 @@
 
 echo "~~~~~~~~~~~~~ Starting mi_run_test.sh ~~~~~~~~~~~~~~~~~~~"
 
-input_dir=$2
-output_dir=$4
-
-echo "My INPUTS_DIR is $input_dir"
-
 dir=$(pwd)
 echo "HOME ====>   $dir"
 
 echo "Setup GIT ~~~~~~~~~"
-
 setup_git(){
 # Add github key to known host
 ssh-keyscan -H "github.com" >> ~/.ssh/known_hosts
@@ -50,22 +44,21 @@ ssh-add ~/.ssh/id_rsa
 
 setup_git
 
+
 echo "Repo Clone ~~~~~~~~~"
 cd $dir
 git clone https://github.com/RidmiR/micro-integrator.git
 filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
 echo "filepath --->>>   $filPath"
 
-echo "$dir LS---->"
 ls
 
 echo "Build Image ~~~~~~~~~"
-pwd
+
 cd $dir/$filPath
 exec 3<> DockerFile
 
-cp DockerFile $dir/$filPath
-echo "LS $dir/$filPath==== "
+echo "ls carbonapps path=====> "
 ls $dir/$filPath
 
 echo "RUN sudo docker login -u ridmir -p 1qaz2wsx@E" >&3
@@ -75,7 +68,9 @@ echo "ADD $dir/server/carbonapps" >&3
 echo "COPY carbonapps $dir/server/carbonapps" >&3
 
 echo "Build Docker Image ~~~~~~~~~"
-cd $dir/$filPath && docker build -t mi_docker:latest .
+pwd
+ls
+cd $dir/$filPath && docker build -t mi_docker:latest DockerFile .
 
 #echo "Run Image ~~~~~~~~~"
 #docker run -d -p 8290:8290 mi_docker:latest
