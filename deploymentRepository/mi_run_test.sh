@@ -62,21 +62,22 @@ ls
 echo "Build Image ~~~~~~~~~"
 
 exec 3<> DockerFile
+pwd
 ls
 
 echo "RUN sudo docker login -u ridmir -p 1qaz2wsx@E" >&3
 echo "FROM wso2/micro-integrato:1.1.0-SNAPSHOT" >&3
-echo "RUN mkdir $dir/server/carbonapps " >&3
+echo "ADD $dir/server/carbonapps" >&3
+#echo "RUN mkdir -p $dir/server/carbonapps" >&3
 #echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
 echo "COPY $filPath $dir/server/carbonapps" >&3
 
-echo "Cat DockerFile  ~~~~~~~~~"
-cat DockerFile
-
-
-echo "cd to server path  ~~~~~~~~~"
-#cd $dir/server/carbonapps
+echo "Cat carbonapps Path  ~~~~~~~~~"
+cd $filPath $dir/server/carbonapps
 ls
+
+#echo "Cat DockerFile  ~~~~~~~~~"
+#cat DockerFile
 
 docker build -t mi_docker:latest -f DockerFile .
 
