@@ -83,7 +83,7 @@ cd $dir
 echo "DIR-->"
 echo $dir
 echo "Build Docker Image ~~~~~~~~~"
-docker build -t mi_docker:latest DockerFile .
+docker build -t mi_docker:latest -f DockerFile .
 
 echo "Cat carbonapps Path  ~~~~~~~~~"
 cd $dir
