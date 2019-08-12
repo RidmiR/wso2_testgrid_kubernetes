@@ -73,12 +73,15 @@ echo "mkdir -p $dir/server/carbonapps" >&3
 #echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
 echo "COPY $filPath $dir/server/carbonapps" >&3
 
+echo "cat DockerFile ~~~~~~~~~"
+cat DockerFile
+
 
 #echo "Cat DockerFile  ~~~~~~~~~"
 #cat DockerFile
 
 echo "Build Docker Image ~~~~~~~~~"
-docker build -t mi_docker:latest
+docker build -t mi_docker:latest $dir/DockerFile
 
 echo "Cat carbonapps Path  ~~~~~~~~~"
 cd $dir
