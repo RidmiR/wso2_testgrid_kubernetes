@@ -78,7 +78,7 @@ echo "COPY $filPath $dir/server/carbonapps" >&3
 #cat DockerFile
 
 echo "Build Docker Image ~~~~~~~~~"
-docker build -t mi_docker:latest -f DockerFile .
+docker build -t mi_docker:latest -f DockerFile
 
 echo "Cat carbonapps Path  ~~~~~~~~~"
 cd $dir
