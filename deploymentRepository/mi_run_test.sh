@@ -55,14 +55,14 @@ git clone https://github.com/RidmiR/micro-integrator.git
 filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
 echo "filepath --->>>   $filPath"
 
-echo "Check filPath ~~~~~~~~~"
-cd $filPath
-ls
+#echo "Check filPath ~~~~~~~~~"
+#cd $filPath
+#ls
 
 echo "Build Image ~~~~~~~~~"
 
-exec 3<> DockerFile
 cd $dir
+exec 3<> DockerFile
 ls
 
 echo "RUN sudo docker login -u ridmir -p 1qaz2wsx@E" >&3
@@ -78,7 +78,7 @@ echo "COPY $filPath $dir/server/carbonapps" >&3
 #cat DockerFile
 
 echo "Build Docker Image ~~~~~~~~~"
-docker build -t mi_docker:latest .
+docker build -t mi_docker:latest
 
 echo "Cat carbonapps Path  ~~~~~~~~~"
 cd $dir
