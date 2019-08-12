@@ -53,7 +53,7 @@ setup_git
 echo "Repo Clone ~~~~~~~~~"
 cd $dir
 git clone https://github.com/RidmiR/micro-integrator.git
-#filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
+filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
 #echo "filepath --->>>   $filPath"
 
 #echo "Check filPath ~~~~~~~~~"
@@ -62,6 +62,7 @@ git clone https://github.com/RidmiR/micro-integrator.git
 
 echo "Build Image ~~~~~~~~~"
 pwd
+cd $filPath
 exec 3<> DockerFile
 ls
 
@@ -72,9 +73,9 @@ echo "ADD $dir/server/carbonapps" >&3
 echo "COPY carbonapps $dir/server/carbonapps" >&3
 
 echo "PWDDD ~~~~~~~~~"
-pwd
+cd $filPath
 echo "Build Docker Image ~~~~~~~~~"
-docker build -t mi_docker:latest .
+docker build -t mi_docker:latest $filPath
 
 #echo "Run Image ~~~~~~~~~"
 #docker run -d -p 8290:8290 mi_docker:latest
