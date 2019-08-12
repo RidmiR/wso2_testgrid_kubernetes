@@ -63,14 +63,14 @@ ls
 echo "RUN sudo docker login -u ridmir -p 1qaz2wsx@E" >&3
 echo "FROM wso2/micro-integrato:1.1.0-SNAPSHOT" >&3
 #echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
-echo "COPY $filPath $dir/server/carbonapps" >&3
+echo "COPY $filPath $dir" >&3
 
 echo "Cat DockerFile  ~~~~~~~~~"
 cat DockerFile
 
 
 echo "cd to server path  ~~~~~~~~~"
-cd $dir/server/carbonapps
+cd $dir
 ls
 
 docker build -t mi_docker:latest -f DockerFile .
