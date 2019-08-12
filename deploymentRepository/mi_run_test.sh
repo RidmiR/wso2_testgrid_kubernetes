@@ -51,9 +51,10 @@ ssh-add ~/.ssh/id_rsa
 setup_git
 
 echo "Repo Clone ~~~~~~~~~"
+cd $dir
 git clone https://github.com/RidmiR/micro-integrator.git
-filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
-echo "filepath --->>>   $filPath"
+#filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
+#echo "filepath --->>>   $filPath"
 
 #echo "Check filPath ~~~~~~~~~"
 #cd $filPath
@@ -61,7 +62,7 @@ echo "filepath --->>>   $filPath"
 
 echo "Build Image ~~~~~~~~~"
 pwd
-cd $dir
+cd $dir/micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps
 exec 3<> DockerFile
 ls
 
@@ -69,16 +70,8 @@ echo "RUN sudo docker login -u ridmir -p 1qaz2wsx@E" >&3
 echo "FROM wso2/micro-integrato:1.1.0-SNAPSHOT" >&3
 echo "RUN mkdir -p $dir/server/carbonapps" >&3
 echo "ADD $dir/server/carbonapps" >&3
-echo "mkdir -p $dir/server/carbonapps" >&3
-#echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
-echo "COPY $filPath $dir/server/carbonapps" >&3
+echo "COPY carbonapps $dir/server/carbonapps" >&3
 
-echo "cat DockerFile ~~~~~~~~~"
-cat DockerFile
-
-
-#echo "Cat DockerFile  ~~~~~~~~~"
-#cat DockerFile
 cd $dir
 echo "DIR-->"
 echo $dir
