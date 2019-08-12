@@ -67,8 +67,8 @@ ls
 
 echo "RUN sudo docker login -u ridmir -p 1qaz2wsx@E" >&3
 echo "FROM wso2/micro-integrato:1.1.0-SNAPSHOT" >&3
-echo "ADD $dir/server/carbonapps" >&3
-#echo "RUN mkdir -p $dir/server/carbonapps" >&3
+echo "ADD /testgrid/testgrid-home/jobs/dev_mi_docker/dev_mi_docker_deployment_MySQL-5.7_CentOS-7.5_run39/workspace/DeploymentRepository/server/carbonapps" >&3
+echo "RUN mkdir -p /testgrid/testgrid-home/jobs/dev_mi_docker/dev_mi_docker_deployment_MySQL-5.7_CentOS-7.5_run39/workspace/DeploymentRepository/server/carbonapps" >&3
 #echo "COPY files/carbonapps /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
 echo "COPY $filPath $dir/server/carbonapps" >&3
 
