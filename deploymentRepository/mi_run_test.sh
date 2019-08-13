@@ -21,7 +21,7 @@ echo "~~~~~~~~~~~~~ Starting mi_run_test.sh ~~~~~~~~~~~~~~~~~~~"
 dir=$(pwd)
 echo "HOME ====>   $dir"
 
-echo "Setup GIT ~~~~~~~~~"
+echo "Setup GIT"
 setup_git(){
 # Add github key to known host
 ssh-keyscan -H "github.com" >> ~/.ssh/known_hosts
@@ -72,7 +72,7 @@ docker ps
 
 sleep 6
 
-curl http://localhost:8290/hello-world
+curl http://172.17.0.1:8290/hello-world
 
 echo "Stop container"
 docker container stop wso2-mi-container
