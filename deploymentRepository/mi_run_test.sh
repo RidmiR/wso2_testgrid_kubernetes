@@ -79,7 +79,8 @@ docker run -d -p 8290:8290 --name=wso2-mi-container mi_docker:latest
 echo "Docker PS ~~~~~~~~~"
 docker ps
 
-curl -v GET http://0.0.0.0:8290/hello-world
+curl -v GET "http://0.0.0.0:8290/hello-world" -o curl-out
+cat curl-out
 
 echo "Stop container ~~~~~~~~~"
 docker container stop wso2-mi-container
