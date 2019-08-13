@@ -72,7 +72,7 @@ ls
 docker build -t mi_docker:latest -f Dockerfile .
 
 docker container ls -a
-docker container rm wso2-mi-container
+#docker container rm wso2-mi-container
 echo "Run Image ~~~~~~~~~"
 docker run -d -p 8290:8290 --name=wso2-mi-container mi_docker:latest
 
