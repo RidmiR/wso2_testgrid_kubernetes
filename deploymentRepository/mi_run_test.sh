@@ -53,6 +53,11 @@ echo "filepath --->>>   $filPath"
 
 ls
 
+echo "Check clone files................"
+cd $dir/micro-integrator
+ls
+
+
 echo "Build Image ~~~~~~~~~"
 
 cd $dir/$filPath
