@@ -63,7 +63,8 @@ echo "RUN sudo docker login -u ridmir -p 1qaz2wsx@E" >&3
 echo "FROM wso2/micro-integrato:1.1.0-SNAPSHOT" >&3
 #echo "RUN mkdir -p $dir/server/carbonapps" >&3
 #echo "ADD $dir/server/carbonapps" >&3
-echo "COPY carbonapps $dir/server/carbonapps" >&3
+echo "COPY hello-worldCompositeApplication_1.0.0.car /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
+
 
 cat Dockerfile
 
