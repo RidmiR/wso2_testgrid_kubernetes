@@ -74,6 +74,9 @@ docker build -t mi_docker:latest -f Dockerfile .
 echo "Run Image ~~~~~~~~~"
 docker run -d -p 8290:8290 --name=wso2-mi-container mi_docker:latest
 
+echo "Docker PS ~~~~~~~~~"
+docker ps
+
 curl -v -X GET http://localhost:8290/hello-world
 
 echo "Stop container ~~~~~~~~~"
