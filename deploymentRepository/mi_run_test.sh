@@ -72,7 +72,7 @@ docker inspect wso2-mi-container
 
 sleep 6
 
-curl -v -X GET "http://0.0.0.0:8290/hello-world"
+curl -v GET "http://0.0.0.0:8290/hello-world"
 
 echo "Stop container"
 docker container stop wso2-mi-container
