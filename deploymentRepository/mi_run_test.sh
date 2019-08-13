@@ -68,7 +68,7 @@ docker run -d -p 8290:8290 -p 8253:8253 --name=wso2-mi-container mi_docker:lates
 
 echo "Docker container status"
 docker ps
-docker inspect wso2-mi-container
+#docker inspect wso2-mi-container
 
 sleep 6
 
