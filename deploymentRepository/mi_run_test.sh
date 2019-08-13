@@ -44,48 +44,37 @@ ssh-add ~/.ssh/id_rsa
 
 setup_git
 
-
-echo "Repo Clone ~~~~~~~~~"
+echo "Clone MI repo"
 cd $dir
 git clone https://github.com/RidmiR/micro-integrator.git
 filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
 echo "filepath --->>>   $filPath"
 ls
 
-echo "Build Image ~~~~~~~~~"
+echo "Build Image"
 cd $dir/$filPath
 exec 3<> Dockerfile
 
-echo "ls carbonapps path=====> "
-ls $dir/$filPath
-
-#echo "RUN sudo docker login -u ballerinascenarios -p balscenXhgd308152" >&3
-#echo "RUN sudo docker login -u="ballerinascenarios" -p="balscenXhgd308152"" >&3
 echo "FROM wso2/micro-integrator:1.1.0-SNAPSHOT" >&3
 echo "COPY hello-worldCompositeApplication_1.0.0.car /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
 
-echo "Build Docker Image ~~~~~~~~~"
-pwd
-ls
-
-#docker build -t "mi_docker:latest" .
+echo "Build Docker Image"
 docker build -t mi_docker:latest -f Dockerfile .
 
 docker container ls -a
 #docker container rm wso2-mi-container
-echo "Run Image ~~~~~~~~~"
+echo "Run Image"
 docker run -d -p 8290:8290 -p 8253:8253 --name=wso2-mi-container mi_docker:latest
 
-echo "Docker PS ~~~~~~~~~"
+echo "Docker container status"
 docker ps
-
 docker inspect wso2-mi-container
 
-curl -v -X GET "http://0.0.0.0:8290/hello-world"
-#curl -v GET "http://172.17.0.2:8290/hello-world"
-#curl -v GET "http://172.17.0.2:8253/hello-world"
+sleep 6
 
-echo "Stop container ~~~~~~~~~"
+curl -v -X GET "http://0.0.0.0:8290/hello-world"
+
+echo "Stop container"
 docker container stop wso2-mi-container
 docker container rm wso2-mi-container
 
