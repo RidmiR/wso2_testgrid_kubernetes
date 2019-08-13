@@ -62,12 +62,7 @@ ls $dir/$filPath
 #echo "RUN sudo docker login -u ballerinascenarios -p balscenXhgd308152" >&3
 #echo "RUN sudo docker login -u="ballerinascenarios" -p="balscenXhgd308152"" >&3
 echo "FROM wso2/micro-integrator:1.1.0-SNAPSHOT" >&3
-#echo "RUN mkdir -p $dir/server/carbonapps" >&3
-#echo "ADD $dir/server/carbonapps" >&3
 echo "COPY hello-worldCompositeApplication_1.0.0.car /home/wso2carbon/wso2mi/repository/deployment/server/carbonapps" >&3
-
-
-cat Dockerfile
 
 echo "Build Docker Image ~~~~~~~~~"
 pwd
@@ -76,6 +71,11 @@ ls
 #docker build -t "mi_docker:latest" .
 docker build -t mi_docker:latest -f Dockerfile .
 
-#echo "Run Image ~~~~~~~~~"
-#docker run -d -p 8290:8290 mi_docker:latest
+echo "Run Image ~~~~~~~~~"
+docker run -d -p 8290:8290 --name=wso2-mi-container mi_docker:latest
+
+curl -v -X POST http://localhost:8290/hello-world
+
+echo "Stop container ~~~~~~~~~"
+docker container stop wso2-mi-container
 
