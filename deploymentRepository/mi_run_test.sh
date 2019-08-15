@@ -46,7 +46,7 @@ ssh-add ~/.ssh/id_rsa
 
 }
 
-setup_git
+#setup_git
 
 echo "----Clone MI repo----"
 cd $dir
