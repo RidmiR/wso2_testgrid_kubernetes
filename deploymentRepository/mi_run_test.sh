@@ -81,12 +81,12 @@ netstat -an|grep LISTEN
 
 echo "----Run Test----"
 #curl --tlsv1.2 http://localhost:8253/hello-world
-curl -v https://localhost:8290/hello-world
+curl -v http://localhost:8290/hello-world
 curl -v http://localhost:8290/hello-world
 sleep 1
-curl -k -L https://localhost:8290/hello-world
+curl -k -L http://localhost:8290/hello-world
 sleep 1
-curl -k https://localhost:8290/hello-world
+curl -k http://localhost:8290/hello-world
 
 echo "----Stop container----"
 docker container stop wso2-mi-container
