@@ -16,7 +16,7 @@
 # limitations under the License.
 #--------------------------------------------------------------------------------
 
-#set -euxo pipefail
+set -x pipefail
 # -e => fail script on any error
 # -x => debugging purposes -> print the command to stdout before actually running it.
 
