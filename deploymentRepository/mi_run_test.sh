@@ -44,12 +44,12 @@ ssh-add ~/.ssh/id_rsa
 
 setup_git
 
-echo "Clone MI repo"
+echo "----Clone MI repo----"
 cd $dir
 git clone https://github.com/RidmiR/micro-integrator.git
 filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
 
-echo "Build Image"
+echo "----Build docker image-----"
 cd $dir/$filPath
 ls
 
@@ -63,22 +63,22 @@ docker build -t mi_docker:latest -f Dockerfile .
 
 docker container ls -a
 
-echo "Run Image"
+echo "----Run docker image----"
 docker run -d -p 8290:8290 -p 8253:8253 --name=wso2-mi-container mi_docker:latest
 
-echo "Docker container status"
+echo "----Docker container status----"
 docker ps
 
 sleep 6
 
 netstat -an|grep LISTEN
 
-curl --tlsv1.2 http://localhost:8253/hello-world
-curl -L http://localhost:8290/hello-world
-curl -L http://localhost:8253/hello-world
+echo "----Run Test----"
 #curl --tlsv1.2 http://localhost:8253/hello-world
+curl http://localhost:8290/hello-world
+curl -L http://localhost:8253/hello-world
 
-echo "Stop container"
+echo "----Stop container----"
 docker container stop wso2-mi-container
 docker container rm wso2-mi-container
 
