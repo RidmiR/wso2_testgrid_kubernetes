@@ -19,7 +19,7 @@
 echo "~~~~~~~~~~~~~ Starting mi_run_test.sh ~~~~~~~~~~~~~~~~~~~"
 
 dir=$(pwd)
-echo "HOME ====>   $dir"
+echo "HOME:   $dir"
 
 echo "Setup GIT"
 setup_git(){
@@ -51,6 +51,8 @@ filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapp
 
 echo "Build Image"
 cd $dir/$filPath
+ls
+
 exec 3<> Dockerfile
 
 echo "FROM wso2/micro-integrator:1.1.0-SNAPSHOT" >&3
@@ -60,17 +62,17 @@ echo "Build Docker Image"
 docker build -t mi_docker:latest -f Dockerfile .
 
 docker container ls -a
-#docker container rm wso2-mi-container
+
 echo "Run Image"
 docker run -d -p 8290:8290 -p 8253:8253 --name=wso2-mi-container mi_docker:latest
 
 echo "Docker container status"
 docker ps
-#docker inspect wso2-mi-container
 
 sleep 6
 
 curl http://localhost:8290/hello-world
+curl http://localhost:8253/hello-world
 
 echo "Stop container"
 docker container stop wso2-mi-container
