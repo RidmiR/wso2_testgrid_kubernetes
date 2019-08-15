@@ -73,8 +73,10 @@ sleep 6
 
 netstat -an|grep LISTEN
 
+curl --tlsv1.2 http://localhost:8253/hello-world
 curl -L http://localhost:8290/hello-world
 curl -L http://localhost:8253/hello-world
+#curl --tlsv1.2 http://localhost:8253/hello-world
 
 echo "Stop container"
 docker container stop wso2-mi-container
