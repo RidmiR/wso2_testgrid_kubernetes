@@ -48,8 +48,6 @@ echo "Clone MI repo"
 cd $dir
 git clone https://github.com/RidmiR/micro-integrator.git
 filPath="micro-integrator/distribution/src/resources/dockerfiles/files/carbonapps"
-echo "filepath --->>>   $filPath"
-ls
 
 echo "Build Image"
 cd $dir/$filPath
@@ -72,7 +70,7 @@ docker ps
 
 sleep 6
 
-curl http://172.17.0.1:8290/hello-world
+curl http://localhost:8290/hello-world
 
 echo "Stop container"
 docker container stop wso2-mi-container
