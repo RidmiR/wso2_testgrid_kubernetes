@@ -27,29 +27,6 @@ echo "~~~~~~~~~~~~~ Starting mi_run_test.sh ~~~~~~~~~~~~~~~~~~~"
 dir=$(pwd)
 echo "HOME:   $dir"
 
-echo "Setup GIT"
-setup_git(){
-# Add github key to known host
-ssh-keyscan -H "github.com" >> ~/.ssh/known_hosts
-# Start the ssh-agent
-eval "$(ssh-agent -s)"
-# Write ssh key to id-rsa file and set the permission
-echo "$1" > ~/.ssh/id_rsa
-username=$(id -un)
-
-if [ "$username" == "centos" ]; then
-    chmod 600 /home/centos/.ssh/id_rsa
-else
-    chmod 600 /home/ubuntu/.ssh/id_rsa
-fi
-
-# Add ssh key to the agent
-ssh-add ~/.ssh/id_rsa
-
-}
-
-#setup_git
-
 echo "----Clone MI repo----"
 cd $dir
 git clone https://github.com/RidmiR/micro-integrator.git
@@ -80,15 +57,14 @@ sleep 6
 netstat -an|grep LISTEN
 
 echo "----Run Test----"
-#curl --tlsv1.2 http://localhost:8253/hello-world
 #curl -v http://localhost:8290/hello-world
 #curl -v http://localhost:8290/hello-world
-sleep 1
-curl -k -L http://localhost:8290/hello-world
-sleep 1
-curl -k http://localhost:8290/hello-world
-
-echo "----Stop container----"
-docker container stop wso2-mi-container
-docker container rm wso2-mi-container
+#sleep 1
+#curl -k -L http://localhost:8290/hello-world
+#sleep 1
+#curl -k http://localhost:8290/hello-world
+#
+#echo "----Stop container----"
+#docker container stop wso2-mi-container
+#docker container rm wso2-mi-container
 
