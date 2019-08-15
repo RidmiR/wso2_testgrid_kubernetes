@@ -15,8 +15,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #--------------------------------------------------------------------------------
+#
+#set -euxo pipefail
 
-set -euxo pipefail
+set -x pipefail
 # -e => fail script on any error
 # -x => debugging purposes -> print the command to stdout before actually running it.
 
@@ -84,6 +86,9 @@ curl -v http://localhost:8290/hello-world
 sleep 1
 curl -L https://localhost:8253/hello-world
 curl -L http://localhost:8253/hello-world
+sleep 1
+curl -k https://localhost:8253/hello-world
+curl -k https://localhost:8290/hello-world
 
 echo "----Stop container----"
 docker container stop wso2-mi-container
