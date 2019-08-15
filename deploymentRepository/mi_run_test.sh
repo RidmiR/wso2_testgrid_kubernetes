@@ -71,6 +71,8 @@ docker ps
 
 sleep 6
 
+netstat -an|grep LISTEN
+
 curl -L http://localhost:8290/hello-world
 curl -L http://localhost:8253/hello-world
 
