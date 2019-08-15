@@ -16,6 +16,10 @@
 # limitations under the License.
 #--------------------------------------------------------------------------------
 
+set -euxo pipefail
+# -e => fail script on any error
+# -x => debugging purposes -> print the command to stdout before actually running it.
+
 echo "~~~~~~~~~~~~~ Starting mi_run_test.sh ~~~~~~~~~~~~~~~~~~~"
 
 dir=$(pwd)
@@ -75,7 +79,10 @@ netstat -an|grep LISTEN
 
 echo "----Run Test----"
 #curl --tlsv1.2 http://localhost:8253/hello-world
-curl http://localhost:8290/hello-world
+curl -v https://localhost:8290/hello-world
+curl -v http://localhost:8290/hello-world
+sleep 1
+curl -L https://localhost:8253/hello-world
 curl -L http://localhost:8253/hello-world
 
 echo "----Stop container----"
