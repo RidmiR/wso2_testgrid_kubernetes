@@ -81,8 +81,8 @@ netstat -an|grep LISTEN
 
 echo "----Run Test----"
 #curl --tlsv1.2 http://localhost:8253/hello-world
-curl -v http://localhost:8290/hello-world
-curl -v http://localhost:8290/hello-world
+#curl -v http://localhost:8290/hello-world
+#curl -v http://localhost:8290/hello-world
 sleep 1
 curl -k -L http://localhost:8290/hello-world
 sleep 1
