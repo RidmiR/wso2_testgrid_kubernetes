@@ -87,6 +87,9 @@ sleep 1
 curl -L https://localhost:8253/hello-world
 curl -L http://localhost:8253/hello-world
 sleep 1
+curl -k -L https://localhost:8253/hello-world
+curl -k -L https://localhost:8290/hello-world
+sleep 1
 curl -k https://localhost:8253/hello-world
 curl -k https://localhost:8290/hello-world
 
